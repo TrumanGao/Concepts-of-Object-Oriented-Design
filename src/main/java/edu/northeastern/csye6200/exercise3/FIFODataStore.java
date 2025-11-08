@@ -1,7 +1,7 @@
 package edu.northeastern.csye6200.exercise3;
 
 /**
- * FIFODataStore implements a First-In-First-Out (Queue) data store.
+ * First-In-First-Out (Queue) data store
  * The first element added is the first element to be removed.
  */
 public class FIFODataStore extends GeneralDataStore {
@@ -26,7 +26,7 @@ public class FIFODataStore extends GeneralDataStore {
      * Adds an element to the data store at the end
      *
      * @param element the element to add
-     * @return true if successful, false if data store is full
+     * @return true or false if data store is full
      */
     @Override
     public boolean add(Object element) {
@@ -39,7 +39,7 @@ public class FIFODataStore extends GeneralDataStore {
     }
 
     /**
-     * Removes the first element added (FIFO behavior)
+     * Removes the first element added
      *
      * @return the removed element, or null if data store is empty
      */

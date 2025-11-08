@@ -3,12 +3,10 @@ package edu.northeastern.csye6200.exercise3;
 import java.util.ArrayList;
 
 /**
- * GeneralDataStore is an abstract class that provides partial implementation
- * of the DataStore interface. It has a fixed capacity and uses ArrayList for storage.
+ * GeneralDataStore provides partial implementation of the DataStore interface.
+ * It has a fixed capacity and uses ArrayList for storage.
  */
 public abstract class GeneralDataStore implements DataStore {
-
-    // Protected instance variables - accessible to subclasses
     protected int numberOfElements;      // Tracks number of elements in data store
     protected int maxCapacity;           // Maximum capacity of data store
     protected ArrayList<Object> storage; // ArrayList to store elements

@@ -1,7 +1,7 @@
 package edu.northeastern.csye6200.exercise3;
 
 /**
- * LIFODataStore implements a Last-In-First-Out (Stack) data store.
+ * Last-In-First-Out (Stack) data store
  * The last element added is the first element to be removed.
  */
 public class LIFODataStore extends GeneralDataStore {
@@ -26,7 +26,7 @@ public class LIFODataStore extends GeneralDataStore {
      * Adds an element to the data store at the end
      *
      * @param element the element to add
-     * @return true if successful, false if data store is full
+     * @return true or false if data store is full
      */
     @Override
     public boolean add(Object element) {
@@ -39,7 +39,7 @@ public class LIFODataStore extends GeneralDataStore {
     }
 
     /**
-     * Removes the last element added (LIFO behavior)
+     * Removes the last element added
      *
      * @return the removed element, or null if data store is empty
      */
