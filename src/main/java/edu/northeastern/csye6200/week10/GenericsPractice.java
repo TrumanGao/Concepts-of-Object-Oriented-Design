@@ -29,6 +29,5 @@ public class GenericsPractice {
     public static void main(String[] args) {
         int[] array = {11, 1, 200, 3, 4, 10, 111};
         System.out.println(max(array));
-        System.out.println(maximum(array));
     }
 }
