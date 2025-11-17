@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)https://mymasonportal.gmu.edu/bbcswebdav/pid-9751702-dt-content-rid-170948188_1/courses/XLS72201970/Project3%20_Updated.html -->
+<html>
+<head>
+    <meta name="Description" content="INFO5100/CSYE6200 Programming Project 3">
+    <title>Project 2INFO 5100 </title>
+    <style type="text/css">
+	  body { background-color: #eee; }
+      a { color: #284; }
+      code { color: #284; }
+  	  div.code { padding: 1em; padding-top: 0; border: groove; border-radius: 8px; }
+      .heading { color: RED; font-variant: small-caps; text-align: center; }
+	  .summary { text-align: center; }
+	  .notice { color: #f00; }
+      .heading .l1 { font-size: 2.5em; }
+      .heading .l2 { font-size: 2em; }
+      .body { font-size: 1.2em; }
+      .section { font-weight: bold; font-variant: small-caps; }
+      .unspec { font-style: italic; }
+      .name { font-style: italic; }
+      .emph { font-weight: bold; }
+      table.a { width: 100%; border-collapse: collapse; border: thin solid; }
+      table.a td { border-right: thin solid; text-align: center; }
+      table.a tr:nth-child(even) { border-top: thin solid; }
+      table.a tr:nth-child(odd) { background-color: rgba(0,0,0,0.05); }
+      table i { color: #284; }
+      table.b { border-collapse: collapse; 
+          border-top: thin solid; border-bottom: thin solid; }
+      table.b th { border-bottom: thin solid; 
+          padding-right: 2em; padding-left: 2em; }
+      table.b td { text-align: center; }
+	  table.b tr.w { border-top: thin solid; }
+      table.b tr:nth-child(odd) { background-color: rgba(0,0,0,0.05); }
+      svg { fill: none; stroke: #284; }
+	  svg .interface { stroke: blue; }
+	  svg path.interface { stroke-dasharray: 10,10; }
+	  svg text { text-anchor: middle; font-size: 1.5em; fill: #284; font-family: Monospace; }
+
+    </style>
+
+  </head>
+    <body>
+    <div class="heading">
+      <span class="l1">INFO5100 / CSYE6200 </span><br>
+      <span class="l2">Project 3</span><br>
+      <span class="l2">due Wednesday, November 19 at 11:59PM</span><br>
+
+      <p/>
+    </div>
+
+	<div class="body">
+ 	  <hr>
+	  <div class="summary">The objective of this project is to implement a mini personal fitness app. This project uses deeper class hierarchies than previously, and introduces the use of 
+enum datatypes. It also demonestares the use of ploymorphism in problem sloving</div>
+	  <hr><p>
+	  <span class="section">Overview:</span>
+	  </p><ol>
+	      <li>Implement the basics of <code>Fitness</code> and types of Fitnesses: <code>Aerobic</code>, <code>Anaerobic</code>,<code>Flexibility</code>, and <code>Endurance</code> which are derived from <code>Fitness</code>.</li>
+		  <li>Implement specific Fitness types such as  <code>Swimming</code>, <code>Cycling</code>, <code>Yoga</code>, <code>PullUp</code>, etc. </li>
+		  <li>Define the class <code>Profile</code>, which stores information regaring users.
+         	  
+		  </li><li>Implement the class <code>DailyExercise</code>, which gives the daily exercise routines to the user.
+		  </li><li>Implement the class <code>WeeklyExercise</code>,  which gives a weekly workout plan based on a target.
+	
+		  </li><li>Define different <code> enum</code> data types to be used throughout the project.
+         
+		  
+          </li><li>Download and use the tester module to ensure that your program is correct.</li>
+          <li>Prepare the assignment for submission and submit it.</li>		  
+	  </ol>
+	   According to the United States Department of Health and Human Services, physical fitness is defined as "a set of attributes that people have or achieve that relates to the ability to perform physical activity" . There are four different types of fitnesses that can be incorporated into your exercise routine: aerobic, anaerobic, flexibility and endurance fitness. Each of these fitness types target different body parts. There are different fitness exercises/activities that can be categorized in one or more of the fitness types.  Aerobic activities condition your heart and lungs.  Anaerobic exercise is defined as short duration, high intensity exercise lasting anywhere from merely seconds up to around two minutes. Flexibility is a result of physical activity. Flexibility comes from stretching. Endurance exercises exert maximum force in short intervals of time, with the goal of increasing power (speed-strength).
+    </p><p>
+        <p>
+        For this project, we will develop a simple personal fitness app. The fitness app will provide a user the functionality to create and modify  daily and weekly fitness plans based on 
+personal goals.  
+		
+		</p><p>
+		This project will use slightly deeper class hierarchies than we have in the past.  The following diagram depicts the class hierarchies we will implement in this project.
+		</p><p>
+		    <svg width="1200" height="320">
+			    <defs>
+				    <marker class="interface" id="triangle2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="strokeWidth" markerWidth="10" markerHeight="10" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker>
+		    <marker id="triangle" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="strokeWidth" markerWidth="10" markerHeight="10" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker>
+				</defs>
+			    <g class="interface" transform="translate(400 0)"><rect width="128" height="52"></rect><text x="64" y="32">Fitness</text></g>
+			    <g transform="translate(60 128)"><rect width="100" height="52"></rect><text x="50" y="32">Aerobic</text></g>
+			    <path class="interface" d="M 124 128 V 90 H 464 V 62" marker-end="url(#triangle2)"></path>
+			    
+                            <g transform="translate(350 128)"><rect width="100" height="52"></rect><text x="50" y="32">Anaerobic</text></g>
+			    <path class="interface" d="M 400 128 V 90 H 464 V 62" marker-end="url(#triangle2)"></path>
+			    
+                            <g transform="translate(630 128)"><rect width="120" height="52"></rect><text x="58" y="32">Flexibility</text></g>
+				<path class="interface" d="M 710 128 V 90 H 464 V 62" marker-end="url(#tirangle2)"></path>
+			    
+                             <g transform="translate(950 128)"><rect width="100" height="52"></rect><text x="50" y="32">Endurance</text></g>
+				<path class="interface" d="M 990 128 V 90 H 464 V 62" marker-end="url(#tirangle2)"></path>
+                            
+                            <g transform="translate(0 256)"><rect width="100" height="52"></rect><text x="50" y="32">Swimming</text></g>
+                            <g transform="translate(120 256)"><rect width="100" height="52"></rect><text x="50" y="32">Cycling</text></g>
+				<path d="M 80 256 V 218 H 100 V 190" marker-end="url(#tirangle)"></path>
+                                <path d="M 180 256 V 218 H 100 V 190" marker-end="url(#triangle)"></path>
+
+
+
+                            <g transform="translate(250 256)"><rect width="135" height="52"></rect><text x="64" y="32">Weightlifting</text></g>
+                            <g transform="translate(400 256)"><rect width="120" height="52"></rect><text x="57" y="32"> Plyometrics</text></g>
+				<path d="M 340 256 V 218 H 390 V 190" marker-end="url(#triangle)"></path>
+                                <path d="M 480 256 V 218 H 390 V 190" marker-end="url(#triangle)"></path>
+
+
+
+                            <g transform="translate(570 256)"><rect width="120" height="52"></rect><text x="50" y="32">Yoga</text></g>
+                            <g transform="translate(700 256)"><rect width="120" height="52"></rect><text x="50" y="32"> Tai Chi</text></g>
+				<path d="M 640 256 V 218 H 700 V 190" marker-end="url(#triangle)"></path>
+                                <path d="M 750 256 V 218 H 700 V 190" marker-end="url(#triangle)"></path>
+
+
+
+<g transform="translate(860 256)"><rect width="120" height="52"></rect><text x="50" y="32"> Squat</text></g>
+                            <g transform="translate(1010 256)"><rect width="120" height="52"></rect><text x="50" y="32"> Pull-Up</text></g>
+				<path d="M 920 256 V 218 H 980 V 190" marker-end="url(#triangle)"></path>
+                                <path d="M 1050 256 V 218 H 980 V 190" marker-end="url(#triangle)"></path>
+
+			</svg>
+	    </p><p>
+		In this project, enum data types are also introduced.
+
+        </p><p>	  
+	  <span class="section">Rules</span>
+	  </p><ol>
+	      <li><span class="notice">This project is an individual effort; the Honor Code applies</span></li>
+<li> DO NOT use any package structure.
+			  <li>All data fields should be declared <code>private</code> or <code>protected</code>
+		  </li><li>You may add your own helper methods or data fields, but they should be <code>private</code> or <code>protected</code>.  You may add additional constructors which are public.</li>
+		  <li>Use of <code>@Override</code> tags on overridden methods is not required but is strongly recommended.
+		  </li><li>When commenting code, use JavaDoc-style comments.  Include <code>@param</code> and/or <code>@return</code> tags to explain what is passed in or returned wherever it isn't obvious.</li>
+
+      </ol>
+	  <p>
+	  <span class="section">Fitness Task:</span><br>
+	  <code>public interface Fitness</code>
+	  </p><p>
+	 (<i>10pts</i>) This will be used as a starting point for deriving any specific Fitness type. Every fitness exercise type has one or more muscle group it affects. Therefor a <code>Fitness</code> has the following abstarct method (Note that all methods in an interface are <code>abstract</code> by default):
+	  </p><p>
+	  </p><ul>
+	    <li><code>public Muscle [ ] muscleTargeted()</code> A method that returns the muscle that is going to be affected by the fitness. Note that the return type of the method is Muscle. A human body has a finite number of muscle parts that can be affected by fitness exercises. Define an <code> enum</code> datatype called <code> Muscle</code> with the follwoing member values <code> Abs,Back,Biceps,Chest,Arms,Glutes,Shoulders,Triceps,Legs,Cardio</code> </li>
+		<li><code>public double calorieLoss(Intensity intensity, double weight, int duration)</code> - returns the total amount of calorie burnedby the exercise for the duration number of minutes for a person with the given weight.  Intensity can be <code> HIGH, MEDIUM, LOW</code>. Note that Intensity is a good candidate to be definied as <code>enum</code>.</li>
+		<li><code>public String description()</code> a method that returns a short decription of the fitness type.</li>
+	  </li></ul>
+	  <p>
+	  <span class="section">Aerobic Task:</span><br>
+<p>(<i>10pts</i>) Aerobic means "with oxygen." The purpose of aerobic conditioning is to increase the amount of oxygen that is delivered to your muscles, which allows them to work longer. <code> Aerobic </code> is a <code>Fitness</code>. However, we cannot give the actual implementation for the methods <code> muscleTargeted() and calorieLoss()</code> as we don't know the actual aerobic exercise. The <code>descripton()</code> method returns the string <code> Aerobic means "with oxygen."</code>. Note that <code>Aerobic</code> is a good candidate to be <code>abstract</code> class.</p>
+	  <code>public class Swimming</code>, which is an <code>Aerobic</code> 
+	  </p><p>
+      This class represents an actual <code>Aerobic</code> exercise, i.e., it extends <code> Aerobic</code> class, that a user can do to burn calories.   The calculation of how much calorie will be burn relies on a key value known as a MET, which stands for metabolic equivalent. One "MET" is "roughly equivalent to the energy cost of sitting quietly," and can be considered 1 kcal/kg/hour. Since sitting quietly is one MET, a 70 kg person would burn 70 calories (kcal) if they sat quietly for an hour. If an activity's MET value was two, that same person would burn 140 calories in an hour. The MET values of some of the exercises that we consider of this project are displayed in the following table. The MET value multiplied by weight in kilograms tells you calories burned per hour (MET*weight in kg=calories/hour). <span class="notice">Note that the values shown in the table are per hour, but the inputs will typically be per minute, so be sure to take that into account</span>. There are different types swimming: Butterflystroke, Freestyle, and Breaststroke. These different types of swimming activities affects different muscles. Butterflystroke:  <code>Abs,Back, Shoulders,Biceps,Triceps</code>; Breastsstroke:  <code>Glutes, Cardio</code>; Freestyle: <code>Arms,Legs,Cardio</code>. 
+</p><p>
+Define a class <code>Swimming</code>. The class must include the following:
+<p><ul>
+<li> <code>public Swimming (SwimmingType type)</code> - defines the constructor for the class. You need to define an <code> enum</code> datatype called <code>SwimmingType</code>with members </code>ButterflyStroke,Breaststroke,Freestyle</code>
+<li> <code>public Swimming ()</code> - a default constructor for the class that initilizes SwimmingType to Freestyle. 
+<li><code>public void setSwimmingType(SwimmingType type)</code> A setter for the swimmingType.
+<li><code> public SwimmingType getSwimmingType()</code> A getter for the swimmingType.
+<li><code>@Override public String description()</code> returns the name of the class.
+</ul>
+	  </p><p>
+
+<code>public class Cycling</code>, which is an <code>Aerobic</code> 
+	  </p><p>
+      (<i>10pts</i>) This class represents an actual <code>Aerobic</code> exercise, i.e., it extends <code> Aerobic</code> class, that a user can do to burn calories.    Cycling affects  muscles: <code>Glutes, Cardio, Legs</code>. Define a class <code>Cycling</code>. The class also has:
+<ul>
+<li><code>@Override public String description()</code> returns the name of the class.
+</ul>
+	  </p><p>
+	  	  
+	  <p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="right">&#xa0;</th>
+<th scope="col" class="right">&#xa0;</th>
+<th scope="col" class="right">&#xa0;</th>
+<th scope="col" class="right">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="left">Exercise</th>
+<th scope="col" class="right">HIGH</th>
+<th scope="col" class="right">MEDIUM</th>
+<th scope="col" class="right">LOW</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Swimming</td>
+<td class="right">10.0</td>
+<td class="right">8.3</td>
+<td class="right">6.0</td>
+
+</tr>
+
+<tr>
+<td class="left">Cycling</td>
+<td class="right">14.0</td>
+<td class="right">8.5</td>
+<td class="right">4.0</td>
+
+</tr>
+
+<tr>
+<td class="left">Yoga</td>
+<td class="right">4.0</td>
+<td class="right">3.0</td>
+<td class="right">2.0</td>
+
+
+<tr>
+<td class="left">Weightlifting</td>
+<td class="right">6.0</td>
+<td class="right">5.0</td>
+<td class="right">3.5</td>
+
+</tr>
+
+<tr>
+<td class="left"> Plyometrics </td>
+<td class="right">7.4</td>
+<td class="right">4.8</td>
+<td class="right">2.5</td>
+
+</tr>
+
+<tr>
+<td class="left">Tai Chi</td>
+<td class="right">5.0</td>
+<td class="right">3.0</td>
+<td class="right">1.5</td>
+
+</tr>
+<tr>
+
+<td class="left">Squat</td>
+<td class="right">7.0</td>
+<td class="right">5.0</td>
+<td class="right">2.5</td>
+
+</tr>
+<tr>
+<td class="left">Pull-Up</td>
+<td class="right">7.5</td>
+<td class="right">6.0</td>
+<td class="right">4.8</td>
+
+</tr>
+
+</tbody>
+</table>	  
+<p></p>
+	  <span class="section">Anaerobic Task:</span><br>
+<p>(<i>10pts</i>) Examples of anaerobic exercise include heavy weight training, sprinting (running or cycling) and jumping. Basically, any exercise that consists of short exertion, high-intensity movement is an anaerobic exercise. Heavy weight training is an excellent way to build strength and muscle mass. Like <code> Aerobic </code> class, <code> Anaerobic </code>  is a <code>Fitness</code> and  we cannot give the actual implementation for the methods <code> muscleTargeted() and calorieLoss()</code> as we don't know the actual Anaerobic exercise. The <code>descripton()</code> method returns the string <code> Anaerobic means "without oxygen."</code>. Note that <code>Anaerobic</code> is a good candidate to be <code>abstract</code> class.</p></p>
+</p><p>
+Define  classes <code>WeightLifting</code> and <code>Plyometrics</code>, which are <code>Anaerobic</code> fitness exercises. Use the following table to define the classes. The classes also have:
+<p>
+<ul>
+<li><code>@Override public String description()</code> returns the name of the respective classes.
+</ul>
+
+
+</p><p>
+	  	  
+	  <p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="right">&#xa0;</th>
+
+
+</tr>
+
+<tr>
+<th scope="col" class="left">Exercise Type</th>
+<th scope="col" class="right">Muscle affected</th>
+
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr>
+<td class="left">Yoga</td>
+<td class="right">Triceps,Biceps</td>
+
+
+
+<tr>
+<td class="left">Weightlifting</td>
+<td class="right">Shoulders, Legs, Arms, Triceps</td>
+
+
+</tr>
+
+<tr>
+<td class="left"> Plyometrics </td>
+<td class="right">Abs, Legs, Glutes</td>
+
+
+</tr>
+
+<tr>
+<td class="left">Tai Chi</td>
+<td class="right">Arms, Legs</td>
+
+
+</tr>
+<tr>
+
+<td class="left">Squat</td>
+<td class="right">Glutes,Abs,Back</td>
+
+
+</tr>
+<tr>
+<td class="left">Pull-Up</td>
+<td class="right">Biceps, Arms</td>
+
+
+</tr>
+
+</tbody>
+</table>	  
+<p></p>
+
+
+ <span class="section">Flexibility Task:</span><br>
+<p>(<i>10pts</i>) Flexibility exercises stretch your muscles and can help your body stay flexible. These exercises may not improve your endurance or strength, but being flexible gives you more freedom of movement for other exercise as well as for your everyday activities. <code> Flexibility</code>  is a <code>Fitness</code> and  we cannot give the actual implementation for the methods <code> muscleTargeted() and calorieLoss()</code> as we don't know the actual Anaerobic exercise. The <code>descripton()</code> method returns the string <code>Flexibility is uncomfortable and it takes time, so people don't like to do it</code>. Note that <code>Flexibility</code> is a good candidate to be <code>abstract</code> class.</p></p>
+</p><p>
+Define  classes <code>Yoga</code> and <code>TaiChi</code>, which are <code>Flexibility</code> fitness exercises. Use the table above to define the classes. The classes also have:
+<p>
+<ul>
+<li><code>@Override public String description()</code> returns the name of the respective classes.
+</ul>
+
+</p><p>
+<span class="section">Endurance Task:</span><br>
+<p>(<i>10pts</i>) You can improve your endurance by doing an activity for increasing periods of time.  <code> Endurance</code>  is a <code>Fitness</code> and  we cannot give the actual implementation for the methods <code> muscleTargeted() and calorieLoss()</code> as we don't know the actual Anaerobic exercise. The <code>descripton()</code> method returns the string <code>Endurance is all about sweat and patience</code>. Note that <code>Endurance</code> is a good candidate to be <code>abstract</code> class.</p></p>
+</p><p>
+Define  classes <code>Squat</code> and <code>PullUp</code>, which are <code>Endurance</code> fitness exercises. Use the table above to define the classes.The classes also have:
+<p>
+<ul>
+<li><code>@Override public String description()</code> returns the name of the respective classes.
+</ul>
+
+</p><p>
+<span class="section">Profile Task:</span><br/>
+<code>public class Profile</code> 	  </p><p>
+(<i>10pts</i>) This class is represents the profile of the user.  It has the age, weight, height, and gender (MALE or FEMALE) of the user.  Assume the weight is in kgs,  height in meters and gender is <code>enum</code> data type called <code>Gender</code>. In addition, this class must contain:
+	  </p><p>
+</p><ul>
+	    <li><code>public Profile(int age, double height, double weight, Gender gender)</code> A constructor which accepts the age,weight,  height, and gender.</li>
+		<li><code>public void setHeight(double height)</code>the setter that changes the height of the user.</li>
+		<li><code>public void setWeight(double weight)</code>the setter that changes the weight of the user.</li>
+       	
+		<li><code>public void setAge(int age)</code>the setter that changes the age of the user.</li>
+		<li><code>public void setGender(Gender gender)</code>the setter that changes the gender of the user.</li>
+<li><code>public double getHeight()</code> the getter that returns the height of the user.</li>
+<li><code>public double getWeight()</code> the getter that returns the weight of the user.</li>
+<li><code>public int getAge()</code> the getter that returns the age of the user.</li>
+<li><code>public Gender getGender()</code> the getter that returns the gender of the user.</li>
+<li><code>@Override public String toString()</code> returns the string that represents the profile of the user as <code>Age 26, Weight 78.0kg, Height 1.7m, Gender MALE</code>.  Use one digit after the decimal point.</i>
+<li><code>public double calcBMI()</code> - this method calculates and returns the Body Mass Index (BMI) of the user. BMI is calculated by dividing the weight by the square of the height (in kg and in meters respectively).</li>
+<li><code>public double dailyCalorieIntake()</code> - this method calculates and returns the rough daily calorie intake necessary to maintain the current weight based on Body Mass Ratio (BMR) of the user. This is known as your total daily energy expenditure (TDEE). TDEE is calculated as follows:</li><p></p>
+<code> BMR for men  = 66.47 + (13.75 * weight in kg) + (5.003 * height in cm) - (6.755 * age)</code><p></p>
+<code> BMR for women  = 655.1 + ( 9.563 * weight in kg ) + ( 1.85 * height in cm ) - ( 4.676 * age  )</code>
+
+	  </p><p>
+
+      </p></ul>
+<p></p>
+<span class="section">Planner Tasks:</span><br/>
+	  <code>public class DailyExercise</code>
+	  </p><p>
+	  (<i>10pts</i>) This class  represents the daily exercise plan.  It has the list of <code>Fitness</code> exercises the user plans to do, the duration s/he willing to workout, and the targeted calorie loss for the day. The implementation of this class will most likely involve the use of arrays to store all of the <code>Fitness</code>es for the daily workout.  In addition, this class must contain:
+	  </p><p>
+      </p><ul>
+	    <li><code>public DailyExercise(Fitness [] exerciseList, int duration, double calorieTarget, Profile profile)</code> A constructor which accepts an array of exercises, number of minutes to workout and the amount of calories to be burned.</li>
+		<li><code>public DailyExercise(Fitness[] exerciseList, Profile profile)</code> A constructor which sets duration to 1 hour and calorieTarget to 500.</li>
+<li> <code> public int getSize() </code> A method that returns the number of exercises in the exerciseList of the DailyExercise.</li>
+       		<li><code> public void addExercise(Fitness ex)</code> add a new Fitness in the exerciseList.</li>
+     		<li><code> public void removeExercise(Fitness ex)</code> removes an Exercise from the exerciseList.If the exercise does not exist, it will leave the exerciseList unchanged.</li>
+<li><code>public void setExerciseList(Fitness[] list)</code> A setter method which sets the exerciseList of the DailyExercise.  
+ <li><code>public void setDuration(int duration)</code> A setter method which sets the duration of the DailyExercise.  
+<li><code>public void setCalorieTarget(double target)</code> A setter method which sets the amount of calorie to be burnedof the DailyExercise. 
+ <li><code>public void setProfile(Profile profile)</code> A setter method which sets the profile of the user.  
+<li><code>public  Fitness[ ] getExerciseList( )</code> A getter method which returns the exerciseList of the DailyExercise.   
+<li><code>public int getDuration()</code> A getter method which returns the duration of the DailyExercise.  
+<li><code>public double getCalorieTarget()</code> A getter method which returns the amount of calorie to be burnedof the DailyExercise.
+<li><code>public Profile getProfile()</code> A getter method which returns the profile of the user.
+<li><code>public Fitness[] getExercises(Muscle[] targetMuscle)</code> - returns an array of <code>Fitness</code> exercises from the exerciseList that fullfills all the target muscle groups (<code>targetMuscle</code>) the user wants to work on for that specific day. The method will return <code>null</code> if there is no exercise that targets all the muscle groups.
+Use the signature:
+	<li><code>public Fitness[] getAllExercises(Muscle[] targetMuscle)</code> - a  method that returns an array of <code>Fitness</code> exercises from the exerciseList that fullfills all or some of the target muscle groups (<code>targetMuscle</code>) the user wants to work on for that specific day.  The method will return <code>null</code> if there is no exercise or combination of exercises that targets all/some of the muscle groups.  For example, if the targeted muscles are <code>Arms</code>, <code>Cardio</code> and the exerciseList has <code>WeightLifting</code>, <code>Yoga</code>, the method returns <code>WeightLifting</code> as it works on <code>Arms</code>.  Note that none of the fitnesses fulfill both of the target muscles (only <code>WeightLifting</code> fulfills it partially).  </li>
+</ul>
+	<p></p>
+
+	  </p><p>
+
+<code>public class WeeklyExercise</code>
+	  </p><p>
+	  (<i>20pts</i>) This class  represents the Weekly exercise plan.  It has an array of <code>Fitness</code> exercises the user plans to do, the number of times they are willing to workout per week, and the targeted calorie loss for the week. The implementation of this class will most likely involve the use of an array to store all of the exercises for the week.  In addition, this class must contain:
+<ul>
+	    <li><code>public WeeklyExercise(Fitness [ ]exerciseList, int days, double weeklyCalorieTarget, Profile profile)</code> A constructor which accepts an array of daily exercises, number of days to workout per week and the amount of calories to be burned.</li>
+		<li><code>public WeeklyExercise(Fitness[ ] exerciseList, Profile profile)</code> A constructor which sets number of days to 7  and weeklyCaloryTarget to 3500.</li>
+       		<li><code> public void addExercise(Fitness ex)</code>  add a Fitness in the exerciseList.</li>
+     		<li><code> public void removeExercise(Fitness ex)</code> removes a Fitness from the exerciseList.If the fitness does not exist, it will leave the exerciseList unchanged.</li>
+<li><code>public void setExerciseList(Fitness [ ] list)</code> . A setter method which sets the exerciseList of the WeeklyExercise.  
+ <li><code>public void setDays(int days)</code> A setter method which sets the number of days the user plans to workout for the week.  
+<li><code>public void setWeeklyCalorieTarget(double target)</code> A setter method which sets the amount of calorie to be burnedper week. 
+<li><code>public void setProfile(Profile profile)</code> A setter method which sets the user's profile.
+<li><code>public Fitness [] getExerciseList( )</code> A getter method which returns the exerciseList of the WeeklyExercise.  
+<li> <code> public int getSize() </code> A method that returns the number of exercises in the exerciseList.</li>
+<li><code>public int getDays()</code> A getter method which returns the number of days the user plans to workout per week.  
+<li><code>public Profile getProfile()</code> A getter method which returns the user's profile.
+<li><code>public double getWeeklyCalorieTarget()</code> A getter method which returns the amount of calorie to be burnedfor the week.
+<li><code>public DailyExercise [ ] getWeeklyExercises(Intensity intensity)</code> a method that returns a list of <code>DailyExercise</code>s that the user should do in order to meet the targeted calorie loss. The method evenly distributes the calorie loss over the number of <code>days</code> the user plans to workout. This method accepts the intensity of the exercises.  One exercise will be used per day and we have exactly <code>days</code> number of exercises in the <code>exerciseList</code>. Note that the <code>DailyExercise</code> suggessions include the duration (minutes) the user should workout towards the targeted calorie loss.<br>
+We may assume that the input number of days matches the number of <code>Fitness</code> exercises in the exercise list, and that each one gets its own day in the output and an equal fraction of the total calorie loss responsibility.   See the example below.  We must somehow figure out how to use a class's <code>calorieLoss</code> to help us deduce the number of minutes needed to achieve the calorie loss goal.  Note that the duration we calculate may be a fractional value.  <span class="notice">When converting the floating point value of duration to an integer, please use an ordinary typecast without a rounding operation, to be consistent with the tester</span>.  See the example below.
+<li><code>public DailyExercise[] getWeeklyExercises()</code> a method that returns a list of <code>DailyExercise</code>s that the user should do in order to meet the targeted calorie loss. The method evenly distributes the calorie loss over the number of <code>days</code> the user plans to work out. This method is similar to the previous version except that it assumes </code>LOW</code> intensity exercises. One exercise will be used per day and we have exactly <code>days</code> number of exercises in the <code>exerciseList</code>. Note that the <code>DailyExercise</code> suggessions include the duration (minutes) the user should work out towards the targeted calorie loss.
+
+<li><code>public String targetedCalorieLoss(double targetWeight, int withInDays)</code> this method returns the string that contains a suggestion on how to loss the targeted weight within the specified number of days. Assume that you need to burn (or decrease your intake by ) 7000   calories to lose 1Kg. The format of the output is "<code>You need to lose 755.00 calories per day or decrease your intake from 1700.00 to 945.00 inorder to lose 10.00 kg of weight</code>". (Note that you can use "%.2f" to have two decimal places after the dot). If the target weight is greater than the actual weight of the user, the method displays the string "Only works to lose weight".		
+		
+	</ul>  
+	<p/>
+	Example:
+	<div class="code"><code>
+
+	&gt; Profile p = new Profile(25, 1.85, 88, Gender.MALE);<br>
+	&gt; p<br>
+	Age 25, Weight 88.0kg, Height 1.9m, Gender MALE<br>
+	&gt; p.calcBMI()<br>
+	25.712198685171657<br>
+	&gt; p.dailyCalorieIntake()<br>
+	2033.15<br>
+	&gt; Fitness[ ] exercises = { new Swimming(), new Yoga(), new WeightLifting()}<br>
+	&gt; exercises<br>
+	[Swimming@758b306a, Yoga@330e4651, WeightLifting@3cb2992a]<br>
+	&gt; WeeklyExercise w = new WeeklyExercise(exercises, 3, 1000, p);<br>
+	&gt; w.targetedCalorieLoss(85.0, 30)<br>
+	"You need to lose 700.00 calories per day or decrease your intake from 2033.15 to 1333.15 inorder to lose 3.00 kg of weight"<br>
+	&gt; w.targetedCalorieLoss(85.0, 90)<br>
+	"You need to lose 233.33 calories per day or decrease your intake from 2033.15 to 1799.82 inorder to lose 3.00 kg of weight"<br>
+	&gt; DailyExercise [] exArray = w.getWeeklyExercises(Intensity.MEDIUM); // medium intensity exercise<br>
+	&gt; exArray[0].getExerciseList()[0] // the first day's exercise is Swimming<br>
+	[Swimming@758b306a]<br>
+	&gt; exArray[0].getCalorieTarget() // splitting a 1000.0 kcal loss across 3 days yields this<br>
+	333.3333333333333<br>
+	&gt; exArray[0].getDuration() // it takes 27 minutes of medium-intensity swimming to achieve the 333.3 kcal loss<br> 
+	27<br>
+	&gt; exArray[1].getExerciseList()[1] // the second day is Yoga<br>
+	[Yoga@330e4651]<br>
+	&gt; exArray[1].getCalorieTarget()<br>
+	333.3333333333333<br>
+	&gt; exArray[1].getDuration()<br>
+	75<br>
+	&gt; exArray[2].getExerciseList()[2] // the third day is WeightLifting<br>
+	[WeightLifting@3cb2992a]<br>
+	&gt; exArray[2].getCalorieTarget()<br>
+	333.3333333333333<br>
+	&gt; exArray[2].getDuration()<br>
+	45<br>
+	</code></div>
+      </p><p>	  
+	      
+
+<span class="notice">
+<span class="section">Update History:</span>
+</p><p>
+      </p><ul>
+ <li>None
+</ul>
+</span></span>
+	  <span class="section">Testing:</span>
+	  <p>
+	  Download the following (if you don't already have it):
+      </p><ul>
+               <li><a href="">P3Tester.java</a></li>
+	  </ul>
+      This is a unit tester which is what we will use to test to see if your classes are working correctly.  
+      <p>
+      	  <p>
+In Eclipse:<ul>
+<li>create a new JUnitTest Case (File --> New --> JUnit TestCase)
+<li>Name it P3Tester
+<li>Copy/paste the content of P3Tester.java in the new file
+<li>Save the file
+<li>Right click on the P3Tester.java on the Package explorer
+<li>Chose Run As -->JUnit Test
+
+</ul>
+	  <p>
+
+	  <span class="section">Submission:</span>
+	  </p><p>
+	  Submission instructions are as follows.
+	  </p><ol>
+	    <li>Let <i>xxx</i> be your lab section number (011 for this section), and let <i>yyyyyyyy</i> be
+		  your Northeastern userid (for example, if your email is <i>johndoe@northeastern.edu</i>, then your userid is <i>johndoe<i>).  Create the directory <code><i>xxx</i>_<i>yyyyyyyy</i>_P3/</code></li>
+		<li>Place all the <code> .java</code> files in the directory 
+		  you've just created.</li>
+		<li>Create the file <code>ID.txt</code> in the format shown below, containing your name, userid, SIS ID#, lecture section 
+		  and lab section, and add it to the directory.  Your directory should contain three files
+		  total.
+		  <p>
+		  <i>Full Name: Donald Knuth<br>
+		  userID: dknuth<br>
+		  SIS IS#: 00123456<br>
+		  Lecture section: 011<br>
+		  Lab section: 011<br>
+		  </i>
+		</p></li>
+		<li>compress the folder and its contents into a .zip file, and upload the file to Canvas.</li>
+	  </ol>
+	  
+	</div>
+
+
+  
+
+</body></html>
