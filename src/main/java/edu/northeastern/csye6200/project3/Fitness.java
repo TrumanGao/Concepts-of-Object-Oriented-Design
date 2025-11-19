@@ -31,5 +31,15 @@ enum Muscle {
 }
 
 enum Intensity {
-    Low, Medium, High
+    LOW, MEDIUM, HIGH
+}
+
+enum Gender {
+    MALE, FEMALE
+}
+
+enum SwimmingType {
+    ButterflyStroke,
+    Breaststroke,
+    Freestyle
 }

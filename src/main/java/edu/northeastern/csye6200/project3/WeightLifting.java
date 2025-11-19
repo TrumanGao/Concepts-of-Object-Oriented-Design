@@ -1,22 +1,22 @@
 package edu.northeastern.csye6200.project3;
 
 /**
- * PullUp class extends Endurance
+ * WeightLifting class extends Anaerobic
  */
-public class PullUp extends Endurance {
+public class WeightLifting extends Anaerobic {
 
     /**
-     * Returns muscles targeted by pull-ups
+     * Returns muscles targeted by weight lifting
      *
      * @return array of targeted muscles
      */
     @Override
     public Muscle[] muscleTargeted() {
-        return new Muscle[]{Muscle.Biceps, Muscle.Arms};
+        return new Muscle[]{Muscle.Shoulders, Muscle.Legs, Muscle.Arms, Muscle.Triceps};
     }
 
     /**
-     * Calculates calorie loss for pull-ups
+     * Calculates calorie loss for weight lifting
      *
      * @param intensity the intensity level
      * @param weight    the weight in kg
@@ -28,13 +28,13 @@ public class PullUp extends Endurance {
         double met = 0;
         switch (intensity) {
             case HIGH:
-                met = 7.5;
-                break;
-            case MEDIUM:
                 met = 6.0;
                 break;
+            case MEDIUM:
+                met = 5.0;
+                break;
             case LOW:
-                met = 4.8;
+                met = 3.5;
                 break;
         }
         return met * weight * duration / 60.0;
@@ -47,6 +47,6 @@ public class PullUp extends Endurance {
      */
     @Override
     public String description() {
-        return PullUp.class.getSimpleName();
+        return WeightLifting.class.getSimpleName();
     }
 }

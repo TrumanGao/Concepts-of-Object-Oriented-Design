@@ -1,12 +1,6 @@
 package edu.northeastern.csye6200.project3;
 
 public class Swimming extends Aerobic {
-    private enum SwimmingType {
-        ButterflyStroke,
-        Breaststroke,
-        Freestyle
-    }
-
     private SwimmingType swimmingType;
 
     public Swimming(SwimmingType type) {
@@ -56,11 +50,11 @@ public class Swimming extends Aerobic {
     @Override
     public double calorieLoss(Intensity intensity, double weight, int duration) {
         switch (intensity) {
-            case Low:
+            case LOW:
                 return 6 * weight * duration / 60.0;
-            case Medium:
+            case MEDIUM:
                 return 8.3 * weight * duration / 60.0;
-            case High:
+            case HIGH:
                 return 10.0 * weight * duration / 60.0;
             default:
                 return 0.0;

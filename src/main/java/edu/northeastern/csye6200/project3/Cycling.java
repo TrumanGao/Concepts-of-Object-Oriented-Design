@@ -14,11 +14,11 @@ public class Cycling extends Aerobic {
     @Override
     public double calorieLoss(Intensity intensity, double weight, int duration) {
         switch (intensity) {
-            case Low:
+            case LOW:
                 return 4 * weight * duration / 60.0;
-            case Medium:
+            case MEDIUM:
                 return 8.5 * weight * duration / 60.0;
-            case High:
+            case HIGH:
                 return 14.0 * weight * duration / 60.0;
             default:
                 return 0.0;
